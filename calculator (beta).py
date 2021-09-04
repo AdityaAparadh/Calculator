@@ -5,7 +5,7 @@ root = Tk()
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 
 # This is a simple addition calculator sample from tkinter programming
-root.title("Calculator")
+root.title("Calculator - by Aditya ")
 
 
 #First the input
