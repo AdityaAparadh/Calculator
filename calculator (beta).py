@@ -32,6 +32,35 @@ def Button_clear():
 def Button_add():
     first_number= calcInput.get()
     global f_num
+    global math
+    math = "addition"
+    f_num = int(first_number)
+    calcInput.delete(0, END)
+    return
+
+def Button_subtract():
+    first_number= calcInput.get()
+    global f_num
+    global math
+    math = "subtraction"
+    f_num = int(first_number)
+    calcInput.delete(0, END)
+    return
+
+def Button_multiply():
+    first_number= calcInput.get()
+    global f_num
+    global math
+    math = "multiplication"
+    f_num = int(first_number)
+    calcInput.delete(0, END)
+    return
+
+def Button_divide():
+    first_number= calcInput.get()
+    global f_num
+    global math
+    math = "divison"
     f_num = int(first_number)
     calcInput.delete(0, END)
     return
@@ -39,7 +68,16 @@ def Button_add():
 def Button_equal():
     second_number= calcInput.get()
     calcInput.delete(0, END)
-    calcInput.insert(0, f_num + int(second_number))
+
+    if math == "addition":
+        calcInput.insert(0, f_num + int(second_number))
+    if math == "subtraction":
+        calcInput.insert(0, f_num - int(second_number))
+    if math =="multiplication":
+        calcInput.insert(0, f_num * int(second_number))
+    if math == "divison":
+        calcInput.insert(0, f_num / int(second_number))
+
     return
 
 button_1 = Button(root, text="1" , padx=40, pady=20, command=lambda: Button_click(1))
@@ -83,13 +121,13 @@ button_0.grid(row=4 , column=0 )
 button_add = Button(root, text="+", padx=40, pady=20, command=Button_add)
 button_add.grid(row=5, column=0)
 
-button_subtract = Button(root, text="-", padx=40, pady=20, command=Button_add)
+button_subtract = Button(root, text="-", padx=40, pady=20, command=Button_subtract)
 button_subtract.grid(row=6 , column=0)
 
-button_multiply = Button(root, text="x", padx=40, pady=20, command=Button_add)
+button_multiply = Button(root, text="x", padx=40, pady=20, command=Button_multiply)
 button_multiply.grid(row=6 , column=1)
 
-button_divide = Button(root, text="/", padx=40, pady=20, command=Button_add)
+button_divide = Button(root, text="/", padx=40, pady=20, command=Button_divide)
 button_divide.grid(row=6 , column=2)
 
 
