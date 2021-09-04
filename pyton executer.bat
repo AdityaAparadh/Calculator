@@ -2,6 +2,6 @@
 
 echo. THIS FILE IS JUST FOR EXECUTING the Python file easily and serves no other purpose.
 
-1.py
+calculator.py
 pause
 exit

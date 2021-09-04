@@ -29,6 +29,18 @@ def Button_clear():
     return
 
 
+def Button_add():
+    first_number= calcInput.get()
+    global f_num
+    f_num = int(first_number)
+    calcInput.delete(0, END)
+    return
+
+def Button_equal():
+    second_number= calcInput.get()
+    calcInput.delete(0, END)
+    calcInput.insert(0, f_num + int(second_number))
+    return
 
 button_1 = Button(root, text="1" , padx=40, pady=20, command=lambda: Button_click(1))
 
@@ -68,10 +80,24 @@ button_0.grid(row=4 , column=0 )
 
 
 
-button_add = Button(root, text="+", padx=40, pady=20, command=lambda: Button_click())
+button_add = Button(root, text="+", padx=40, pady=20, command=Button_add)
 button_add.grid(row=5, column=0)
 
-button_calc = Button(root, text="=", padx=89, pady=20, command=lambda: Button_click())
+button_subtract = Button(root, text="-", padx=40, pady=20, command=Button_add)
+button_subtract.grid(row=6 , column=0)
+
+button_multiply = Button(root, text="x", padx=40, pady=20, command=Button_add)
+button_multiply.grid(row=6 , column=1)
+
+button_divide = Button(root, text="/", padx=40, pady=20, command=Button_add)
+button_divide.grid(row=6 , column=2)
+
+
+
+
+
+
+button_calc = Button(root, text="=", padx=89, pady=20, command=Button_equal)
 button_calc.grid(row=5, column=1, columnspan=2)
 
 button_clr = Button(root, text="CLR" ,padx=80, pady=20, command =Button_clear)
