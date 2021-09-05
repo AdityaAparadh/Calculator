@@ -44,10 +44,15 @@
 # v0.2
 # Added logbox and operatorbox
 #
-# 0.2.5
+# v0.2.5
 # Added a copy of MIT License
 # Added this CHANGELOG
 # Added KNOWN ISSUES
+
+# v0.3
+# Now it supports float calculations seamlessly
+
+
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -55,8 +60,9 @@
 
 # KNOWN ISSUES
 
-# It doesn't have a decimal button
-# It doesn't support float calculations
+# It doesn't have a decimal button for float input
+
+# Two operators simultenously pressed causes error
 # UI is ugly
 
 
@@ -67,7 +73,7 @@
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------------------------------------------------------
-# v 0.2.5
+# v 0.3
 
 
 from tkinter import *
@@ -76,7 +82,7 @@ root = Tk()
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 
-# This is a simple addition calculator sample from tkinter programming
+
 root.title("Calculator - by Aditya ")
 
 
@@ -122,7 +128,7 @@ def Button_add():
     global f_num
     global math
     math = "addition"
-    f_num = int(first_number)
+    f_num = float(first_number)
     logbox.insert(0, f_num)
     operatorbox.insert(0, '+')
     calcInput.delete(0, END)
@@ -135,7 +141,7 @@ def Button_subtract():
     global f_num
     global math
     math = "subtraction"
-    f_num = int(first_number)
+    f_num = float(first_number)
     logbox.insert(0, f_num)
     operatorbox.insert(0, '-')
 
@@ -149,7 +155,7 @@ def Button_multiply():
     global f_num
     global math
     math = "multiplication"
-    f_num = int(first_number)
+    f_num = float(first_number)
     logbox.insert(0, f_num)
     operatorbox.insert(0, 'x')
     calcInput.delete(0, END)
@@ -162,7 +168,7 @@ def Button_divide():
     global f_num
     global math
     math = "divison"
-    f_num = int(first_number)
+    f_num = float(first_number)
     logbox.insert(0, f_num)
     operatorbox.insert(0, '/')
     calcInput.delete(0, END)
