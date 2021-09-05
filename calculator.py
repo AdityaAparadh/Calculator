@@ -52,7 +52,8 @@
 # v0.3
 # Now it supports float calculations seamlessly
 
-
+#v0.4
+#Added a decimal button
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -60,9 +61,14 @@
 
 # KNOWN ISSUES
 
-# It doesn't have a decimal button for float input
+# Unesessarily converts integers into floats
 
-# Two operators simultenously pressed causes error
+# If we enter a single no. and press enter, it returns an error
+
+# Two operators consecutively pressed causes error
+
+#Doesn't have seperate buttons for All Clear and Delete
+
 # UI is ugly
 
 
@@ -179,13 +185,13 @@ def Button_equal():
     calcInput.delete(0, END)
 
     if math == "addition":
-        calcInput.insert(0, f_num + int(second_number))
+        calcInput.insert(0, f_num + float(second_number))
     if math == "subtraction":
-        calcInput.insert(0, f_num - int(second_number))
+        calcInput.insert(0, f_num - float(second_number))
     if math =="multiplication":
-        calcInput.insert(0, f_num * int(second_number))
+        calcInput.insert(0, f_num * float(second_number))
     if math == "divison":
-        calcInput.insert(0, f_num / int(second_number))
+        calcInput.insert(0, f_num / float(second_number))
 
     return
 
@@ -209,6 +215,7 @@ button_9 = Button(root, text="9" , padx=40, pady=20, command=lambda: Button_clic
 
 button_0 = Button(root, text="0" , padx=40, pady=20, command=lambda: Button_click(0))
 
+button_decimal = Button(root, text="." , padx=40, pady=20, command=lambda: Button_click("."))
 
 
 button_1.grid(row=4 , column=0 )
@@ -225,6 +232,7 @@ button_9.grid(row=2 , column=2 )
 
 button_0.grid(row=5 , column=0 )
 
+button_decimal.grid(row=8, column =1)
 
 
 button_add = Button(root, text="+", padx=40, pady=20, command=Button_add)
