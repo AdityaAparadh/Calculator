@@ -5,6 +5,6 @@ echo.
 echo.
 echo.
 
-1.py
+calculator.py
 pause
 exit
