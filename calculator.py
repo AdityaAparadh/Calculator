@@ -124,6 +124,8 @@ def Button_click(number):
 
 def Button_clear():
     calcInput.delete(0, END)
+    logbox.delete(0, END)
+    operatorbox(0, END)
     return
 
 

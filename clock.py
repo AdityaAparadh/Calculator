@@ -7,7 +7,7 @@ from time import strftime
 root= Tk()
 root.title("Clock - by Aditya")
 
-timeLabel = Label(root, font=("ds-digital", 80), background="black", foreground = "green" )
+timeLabel = Label(root, font=("Bahnschrift SemiBold", 80), background="black", foreground = "#66CA6D" )
 timeLabel.pack(anchor="center")
 
 
