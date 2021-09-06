@@ -63,7 +63,7 @@
 
 # Unesessarily converts integers into floats
 
-# If we enter a single no. and press enter, it returns an error
+# If we enter a single no. and press equals to, it returns an error
 
 # Two operators consecutively pressed causes error
 
@@ -90,24 +90,20 @@ root = Tk()
 
 
 root.title("Calculator - by Aditya ")
+root.configure(background='#131313')
 
 
 #First the input
 
-calcInput = Entry(root, width=35 , borderwidth = 5)
+calcInput = Entry(root, width=8,font = ('Century Gothic', 35, 'bold'), foreground='#FFFFFF', background='#131313')
 calcInput.grid(row=1 , column=0, columnspan=3, padx=10 , pady=10)
 
 
-logbox = Entry(root, width=30, borderwidth=5)
+logbox = Entry(root, width=10, font = ('Century Gothic', 20, 'bold'), foreground='#FFFFFF', background='#131313')
 logbox.grid(row=0, column=0, columnspan=2)
 
-operatorbox = Entry(root, width=5, borderwidth=5)
+operatorbox = Entry(root, width=2, font = ('Century Gothic', 20, 'bold'), foreground='#FFFFFF', background='#131313')
 operatorbox.grid(row=0, column=2)
-
-
-
-
-
 
 
 
@@ -118,18 +114,28 @@ def Button_click(number):
 
     current= calcInput.get()
     calcInput.delete(0, END)
-    calcInput.insert(0, current + str(number))
+    calcInput.insert(0, (current + str(number)))
+    button_add["state"] = NORMAL
+    button_subtract["state"] = NORMAL
+    button_multiply["state"] = NORMAL
+    button_divide["state"] = NORMAL
+    button_calc["state"] = NORMAL
     return
 
 
 def Button_clear():
     calcInput.delete(0, END)
     logbox.delete(0, END)
-    operatorbox(0, END)
+    operatorbox.delete(0, END)
     return
 
 
 def Button_add():
+    button_add["state"] = DISABLED
+    button_subtract["state"] = DISABLED
+    button_multiply["state"] = DISABLED
+    button_divide["state"] = DISABLED
+    button_calc["state"] = DISABLED
     logbox.delete(0,END)
     operatorbox.delete(0,END)
     first_number= calcInput.get()
@@ -143,6 +149,11 @@ def Button_add():
     return
 
 def Button_subtract():
+    button_add["state"] = DISABLED
+    button_subtract["state"] = DISABLED
+    button_multiply["state"] = DISABLED
+    button_divide["state"] = DISABLED
+    button_calc["state"] = DISABLED
     logbox.delete(0,END)
     operatorbox.delete(0,END)
     first_number= calcInput.get()
@@ -157,6 +168,11 @@ def Button_subtract():
     return
 
 def Button_multiply():
+    button_add["state"] = DISABLED
+    button_subtract["state"] = DISABLED
+    button_multiply["state"] = DISABLED
+    button_divide["state"] = DISABLED
+    button_calc["state"] = DISABLED
     logbox.delete(0,END)
     operatorbox.delete(0,END)
     first_number= calcInput.get()
@@ -170,6 +186,11 @@ def Button_multiply():
     return
 
 def Button_divide():
+    button_add["state"] = DISABLED
+    button_subtract["state"] = DISABLED
+    button_multiply["state"] = DISABLED
+    button_divide["state"] = DISABLED
+    button_calc["state"] = DISABLED
     logbox.delete(0,END)
     operatorbox.delete(0,END)
     first_number= calcInput.get()
@@ -185,6 +206,8 @@ def Button_divide():
 def Button_equal():
     second_number= calcInput.get()
     calcInput.delete(0, END)
+    logbox.delete(0, END)
+    operatorbox.delete(0, END)
 
     if math == "addition":
         calcInput.insert(0, f_num + float(second_number))
@@ -197,27 +220,27 @@ def Button_equal():
 
     return
 
-button_1 = Button(root, text="1" , padx=40, pady=20, command=lambda: Button_click(1))
+button_1 = Button(root, text="1" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=21, pady=10, command=lambda: Button_click(1))
 
-button_2 = Button(root, text="2" , padx=40, pady=20, command=lambda: Button_click(2))
+button_2 = Button(root, text="2" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=20, pady=10, command=lambda: Button_click(2))
 
-button_3 = Button(root, text="3" , padx=40, pady=20, command=lambda: Button_click(3))
+button_3 = Button(root, text="3" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=20, pady=10, command=lambda: Button_click(3))
 
-button_4 = Button(root, text="4" , padx=40, pady=20, command=lambda: Button_click(4))
+button_4 = Button(root, text="4" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=21, pady=10, command=lambda: Button_click(4))
 
-button_5 = Button(root, text="5" , padx=40, pady=20, command=lambda: Button_click(5))
+button_5 = Button(root, text="5" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=20, pady=10, command=lambda: Button_click(5))
 
-button_6 = Button(root, text="6" , padx=40, pady=20, command=lambda: Button_click(6))
+button_6 = Button(root, text="6" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=20, pady=10, command=lambda: Button_click(6))
 
-button_7 = Button(root, text="7" , padx=40, pady=20, command=lambda: Button_click(7))
+button_7 = Button(root, text="7" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=21, pady=10, command=lambda: Button_click(7))
 
-button_8 = Button(root, text="8" , padx=40, pady=20, command=lambda: Button_click(8))
+button_8 = Button(root, text="8" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=20, pady=10, command=lambda: Button_click(8))
 
-button_9 = Button(root, text="9" , padx=40, pady=20, command=lambda: Button_click(9))
+button_9 = Button(root, text="9" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=20, pady=10, command=lambda: Button_click(9))
 
-button_0 = Button(root, text="0" , padx=40, pady=20, command=lambda: Button_click(0))
+button_0 = Button(root, text="0" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=21, pady=10, command=lambda: Button_click(0))
 
-button_decimal = Button(root, text="." , padx=40, pady=20, command=lambda: Button_click("."))
+button_decimal = Button(root, text="." ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=20, pady=10, command=lambda: Button_click("."))
 
 
 button_1.grid(row=4 , column=0 )
@@ -237,16 +260,16 @@ button_0.grid(row=5 , column=0 )
 button_decimal.grid(row=8, column =1)
 
 
-button_add = Button(root, text="+", padx=40, pady=20, command=Button_add)
+button_add = Button(root, text="+", padx=20, pady=10, command=Button_add, font = ('Century Gothic', 20), foreground='#FFFFFF', background='#131313')
 button_add.grid(row=6, column=0)
 
-button_subtract = Button(root, text="-", padx=40, pady=20, command=Button_subtract)
+button_subtract = Button(root, text="-", padx=20, pady=10, command=Button_subtract, font = ('Century Gothic', 20), foreground='#FFFFFF', background='#131313')
 button_subtract.grid(row=7 , column=0)
 
-button_multiply = Button(root, text="x", padx=40, pady=20, command=Button_multiply)
+button_multiply = Button(root, text="x", padx=20, pady=10, command=Button_multiply, font = ('Century Gothic', 20), foreground='#FFFFFF', background='#131313')
 button_multiply.grid(row=7 , column=1)
 
-button_divide = Button(root, text="/", padx=40, pady=20, command=Button_divide)
+button_divide = Button(root, text="/", padx=20, pady=10, command=Button_divide, font = ('Century Gothic', 20), foreground='#FFFFFF', background='#131313')
 button_divide.grid(row=7 , column=2)
 
 
@@ -254,10 +277,11 @@ button_divide.grid(row=7 , column=2)
 
 
 
-button_calc = Button(root, text="=", padx=89, pady=20, command=Button_equal)
+button_calc = Button(root, text="=", padx=40, pady=10, command=Button_equal, font = ('Century Gothic', 20), foreground='#FFFFFF', background='#131313')
 button_calc.grid(row=6, column=1, columnspan=2)
+button_calc["state"] = DISABLED
 
-button_clr = Button(root, text="CLR" ,padx=80, pady=20, command =Button_clear)
+button_clr = Button(root, text="CLR" ,padx=41, pady=10, command =Button_clear, font = ('Century Gothic', 20), foreground='#FFFFFF', background='#131313')
 button_clr.grid(row =5, column=1, columnspan=2 )
 
 
