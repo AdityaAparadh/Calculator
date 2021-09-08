@@ -65,6 +65,9 @@
 # Added icon and icon file
 # Totally converted into calculator project by modifying everything and removing unnessary stuff
 
+# v0.6
+# UI changed drastically again,now fully customizable
+# Added a general settings button instead of history button
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -80,41 +83,77 @@
 
 # Doesn't support multicalculation in one go
 
-# History button doesn't work yet
+# Settings button doesn't work yet
 
+# No option to customize colors
 
+# Some UI combos look bad
 
+# Cornered input boxes look ugly
 
+# Clicking looks ugly
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------------------------------------------------------
-# v 0.5.1
+# v 0.6
+
 
 
 from tkinter import *
 
 root = Tk()
+
+
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------------------------------------------------------
+
+num = "red"
+op = "blue"
+eq = "green"
+
+fnum = "#FFFFFF"
+fop = "#FFFFFF"
+feq = "#FFFFFF"
+fin = "#FFFFFF"
+
+
+numcolor_ = "assets/buttons/" + num + ".png"
+
+opcolor_ = "assets/buttons/" + op + ".png"
+
+eqcolor_ = "assets/buttons/" + eq + "_wide.png"
+
+
+
+numcolor = PhotoImage(file=numcolor_)
+
+bgcolor = "#191919"
+
+opcolor = PhotoImage(file=opcolor_)
+
+eqcolor = PhotoImage(file=eqcolor_)
+
+incolor = "#323232"
+
+
 
 
 root.title("Calculator - by Aditya ")
-root.configure(background='#131313')
+root.configure(background= bgcolor)
 root.iconbitmap("icon.ico")
 
 #First the input
 
-calcInput = Entry(root, width=11,font = ('Century Gothic', 35, 'bold'), foreground='#FFFFFF', background='#323232')
+calcInput = Entry(root, border=0, width=11,font = ('Century Gothic', 35, 'bold'), foreground = fin , background='#323232')
 calcInput.grid(row=1 , column=0, columnspan=4, padx=10 , pady=10)
 
 
-logbox = Entry(root, width=10, font = ('Century Gothic', 20, 'bold'), foreground='#FFFFFF', background='#323232')
+logbox = Entry(root, border=0, width=10, font = ('Century Gothic', 20, 'bold'), foreground = fin , background='#323232')
 logbox.grid(row=0, column=0, columnspan=3)
 
-operatorbox = Entry(root, width=1, font = ('Century Gothic', 20, 'bold'), foreground='#FFFFFF', background='#323232')
+operatorbox = Entry(root, border=0, width=2, font = ('Century Gothic', 20, 'bold'), foreground = fin , background='#323232')
 operatorbox.grid(row=0, column=2)
-
 
 
 
@@ -209,7 +248,7 @@ def Button_divide():
     math = "divison"
     f_num = float(first_number)
     logbox.insert(0, f_num)
-    operatorbox.insert(0, '/')
+    operatorbox.insert(0, '÷')
     calcInput.delete(0, END)
     return
 
@@ -230,27 +269,27 @@ def Button_equal():
 
     return
 
-button_1 = Button(root, text="1" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=21, pady=10, command=lambda: Button_click(1))
+button_1 = Button(root, border=0, background=bgcolor , image=numcolor, command=lambda:Button_click(1), text="1" ,font = ('Century Gothic', 20), foreground = fnum , compound = "center")
 
-button_2 = Button(root, text="2" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=20, pady=10, command=lambda: Button_click(2))
+button_2 = Button(root, border=0, background= bgcolor, image=numcolor,command=lambda: Button_click(2), text="2" ,font = ('Century Gothic', 20), foreground = fnum , compound ="center")
 
-button_3 = Button(root, text="3" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=20, pady=10, command=lambda: Button_click(3))
+button_3 = Button(root, border=0, background= bgcolor, image=numcolor,command=lambda: Button_click(3), text="3" ,font = ('Century Gothic', 20), foreground = fnum , compound ="center")
 
-button_4 = Button(root, text="4" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=21, pady=10, command=lambda: Button_click(4))
+button_4 = Button(root, border=0, background= bgcolor, image=numcolor,command=lambda: Button_click(4), text="4" ,font = ('Century Gothic', 20), foreground = fnum , compound ="center")
 
-button_5 = Button(root, text="5" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=20, pady=10, command=lambda: Button_click(5))
+button_5 = Button(root, border=0, background= bgcolor, image=numcolor,command=lambda: Button_click(5), text="5" ,font = ('Century Gothic', 20), foreground = fnum , compound ="center")
 
-button_6 = Button(root, text="6" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=20, pady=10, command=lambda: Button_click(6))
+button_6 = Button(root, border=0, background= bgcolor, image=numcolor,command=lambda: Button_click(6), text="6" ,font = ('Century Gothic', 20), foreground = fnum , compound ="center")
 
-button_7 = Button(root, text="7" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=21, pady=10, command=lambda: Button_click(7))
+button_7 = Button(root, border=0, background= bgcolor, image=numcolor,command=lambda: Button_click(7), text="7" ,font = ('Century Gothic', 20), foreground = fnum , compound ="center")
 
-button_8 = Button(root, text="8" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=20, pady=10, command=lambda: Button_click(8))
+button_8 = Button(root, border=0, background= bgcolor, image=numcolor,command=lambda: Button_click(8), text="8" ,font = ('Century Gothic', 20), foreground = fnum , compound ="center")
 
-button_9 = Button(root, text="9" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=20, pady=10, command=lambda: Button_click(9))
+button_9 = Button(root, border=0, background= bgcolor, image=numcolor,command=lambda: Button_click(9), text="9" ,font = ('Century Gothic', 20), foreground = fnum , compound ="center")
 
-button_0 = Button(root, text="0" ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=21, pady=10, command=lambda: Button_click(0))
+button_0 = Button(root, border=0, background= bgcolor, image=numcolor,command=lambda: Button_click(0), text="0" ,font = ('Century Gothic', 20), foreground = fnum , compound ="center")
 
-button_decimal = Button(root, text="." ,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#060606', padx=25, pady=10, command=lambda: Button_click("."))
+button_decimal = Button(root, border=0, background= bgcolor, image=numcolor,command=lambda: Button_click("."), text="." ,font = ('Century Gothic', 20), foreground = fnum , compound ="center")
 
 
 button_1.grid(row=4 , column=0 )
@@ -270,29 +309,29 @@ button_0.grid(row=5 , column=0 )
 button_decimal.grid(row=6, column =0)
 
 
-button_add = Button(root, text="+", padx=20, pady=10, command=Button_add, font = ('Century Gothic', 20), foreground='#FFFFFF', background='#131313')
+button_add = Button(root, text="+", border=0, command=Button_add, font = ('Century Gothic', 20), foreground = fop , background=bgcolor, image=opcolor, compound ="center")
 button_add.grid(row=2, column=3)
 
-button_subtract = Button(root, text="-", padx=24, pady=10, command=Button_subtract, font = ('Century Gothic', 20), foreground='#FFFFFF', background='#131313')
+button_subtract = Button(root, text="-", border=0, command=Button_subtract, font = ('Century Gothic', 20), foreground = fop , background=bgcolor, image=opcolor, compound ="center")
 button_subtract.grid(row=3 , column=3)
 
-button_multiply = Button(root, text="x", padx=22, pady=10, command=Button_multiply, font = ('Century Gothic', 20), foreground='#FFFFFF', background='#131313')
+button_multiply = Button(root, text="x", border=0, command=Button_multiply, font = ('Century Gothic', 20), foreground = fop , background=bgcolor, image=opcolor, compound ="center")
 button_multiply.grid(row=4 , column=3)
 
-button_divide = Button(root, text="/", padx=23, pady=10, command=Button_divide, font = ('Century Gothic', 20), foreground='#FFFFFF', background='#131313')
+button_divide = Button(root, text="÷", border=0, command=Button_divide, font = ('Century Gothic', 20), foreground = fop , background=bgcolor, image=opcolor, compound ="center")
 button_divide.grid(row=5 , column=3)
 
-button_history = Button(root, text="H", padx=20 , pady= 10,font = ('Century Gothic', 20), foreground='#FFFFFF', background='#131313' )
-button_history.grid(row=6, column=3)
+button_settings = Button(root, text="S", border=0,font = ('Century Gothic', 20), foreground = fop , background=bgcolor, image=opcolor, compound ="center" )
+button_settings.grid(row=6, column=3)
 
 
 
 
-button_calc = Button(root, text="=", padx=58, pady=10, command=Button_equal, font = ('Century Gothic', 20), foreground='#FFFFFF', background='#C53643')
+button_calc = Button(root, text="=", border=0, command=Button_equal, font = ('Century Gothic', 20), foreground = feq , background=bgcolor, image=eqcolor, compound ="center")
 button_calc.grid(row=6, column=1, columnspan=2)
 
 
-button_clr = Button(root, text="CLR" ,padx=41, pady=10, command =Button_clear, font = ('Century Gothic', 20), foreground='#FFFFFF', background='#131313')
+button_clr = Button(root, text="CLR" ,border=0, command =Button_clear, font = ('Century Gothic', 20), foreground = feq , background=bgcolor, image=eqcolor, compound ="center")
 button_clr.grid(row =5, column=1, columnspan=2 )
 
 
